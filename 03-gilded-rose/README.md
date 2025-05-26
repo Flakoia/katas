@@ -1,51 +1,57 @@
-# Gilded Rose Kata
+# Bienvenue dans l’équipe de l’auberge Gilded Rose !
 
-L'objectif de ce Kata est de travailler le TDD sur du code existant.
+Nous sommes un petit établissement réputé, situé au cœur d’une ville animée, tenu par la sympathique aubergiste Allison.
+Nous achetons et vendons des produits rares… qui, hélas, perdent en qualité au fil du temps.
 
-Le code marche bien (en production depuis plusieurs années), mais on ne comprend pas forcement comment...
+Nous utilisons un système automatisé pour mettre à jour notre inventaire chaque nuit.
+Ce système a été codé par un certain Leeroy – un développeur aussi rugueux qu'efficace – avant de partir vivre d’autres aventures.
+Il a laissé derrière lui un code peu lisible, sans tests, rigide et dangereux à modifier.
 
-La consigne : (https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements.md).
+Vous héritez de ce système, et votre mission est double :
 
-Il faut réaliser la consigne en suivant le cycle TDD (Red-Green-Refactor).
+- Comprendre et refactorer le code existant pour le rendre testable, maintenable, compréhensible.
+- Ajouter une nouvelle fonctionnalité : la gestion des objets **« Conjured »** (conjugués), qui se dégradent deux fois plus vite que les objets normaux.
 
-Peut-être on peut commencer par écrire des tests pour comprendre le code existant.
+⚠️ **Mais attention** :
+Ne touchez surtout pas à la classe `Item` ni à la propriété `Items` !
+Elles appartiennent à un gobelin dans un coin du bureau, qui refuse tout principe de code partagé.
+Si vous les modifiez, il entre en rage et vous *one-shot* sur-le-champ.
+(Heureusement, vous pouvez faire du code autour…)
 
-## Nous avons une aide supplémentaire !
+---
 
-En suivant les instructions ci-dessous, nous pouvons tourner un test qui valide le comportement général de l'application,
-et ainsi vérifier que on n'a pas cassé le code de production.
+## 📚 Règles métier de l’inventaire
 
-Rémarque : ceci n'est pas toujours le cas dans la vrai vie...
+Chaque objet a deux attributs :
 
-Source: [GildedRose by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main)
+- `SellIn` : nombre de jours restants avant qu’il ne doive être vendu
+- `Quality` : valeur qualitative de l’objet
 
-# Install and run approval test with TextTest
+Chaque nuit, le système décrémente ces deux valeurs… mais pas toujours de la même manière :
 
-## Run the TextTest Fixture from Command-Line
+- La qualité ne descend jamais en dessous de 0.
+- Une fois la date de vente passée (`SellIn < 0`), la qualité diminue **deux fois plus vite**.
+- Les objets **« Aged Brie »** voient leur qualité **augmenter** avec le temps.
+- La qualité **ne dépasse jamais 50** (sauf pour **Sulfuras**).
+- **« Sulfuras »**, objet légendaire, **ne se vend jamais** et **sa qualité reste constante (80)**.
+- **« Backstage passes »** voient leur qualité **augmenter à l’approche du concert** :
+    - +2 à 10 jours ou moins
+    - +3 à 5 jours ou moins
+    - **tombe à 0 après le concert**
+- **« Conjured »** : perdent **deux fois plus vite** en qualité que les objets normaux.
 
-```
-./gradlew -q text
-```
+---
 
-### Specify Number of Days
+## 🛠 Déroulé proposé de l’exercice
 
-For e.g. 10 days:
+1. **Présentation du scénario**
+   Explication des règles métier, lecture du code fourni.
 
-```
-./gradlew -q text --args 10
-```
+2. **Constat**
+   Il n’y a **aucun test automatisé**. Vous en ajoutez un premier, mais il est **peu satisfaisant**.
 
-You should make sure the gradle commands shown above work when you execute them in a terminal before trying to use TextTest (see below).
+3. **Ajout de tests pour sécuriser le refactoring**, en s’appuyant sur :
+    - ✅ *Approval Testing*
+    - 🧬 *Mutation Testing* (tests de robustesse)
 
-
-## Run the TextTest approval test that comes with this project
-
-There are instructions in the [TextTest Readme](../texttests/README.md) for setting up TextTest. What's unusual for the Java version is there are two executables listed in [config.gr](../texttests/config.gr) for Java. The first uses Gradle wrapped in a python script. Uncomment these lines to use it:
-
-    executable:${TEXTTEST_HOME}/Java/texttest_rig.py
-    interpreter:python
-
-The other relies on your CLASSPATH being set correctly in [environment.gr](../texttests/environment.gr). Uncomment these lines to use it instead:
-
-    executable:com.gildedrose.TexttestFixture
-    interpreter:java
+4. **Ajout de la nouvelle règle pour les objets `Conjured`**
