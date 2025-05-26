@@ -51,7 +51,7 @@ Chaque nuit, le système décrémente ces deux valeurs… mais pas toujours de l
    Il n’y a **aucun test automatisé**. Vous en ajoutez un premier, mais il est **peu satisfaisant**.
 
 3. **Ajout de tests pour sécuriser le refactoring**, en s’appuyant sur :
-    - ✅ *Approval Testing*
-    - 🧬 *Mutation Testing* (tests de robustesse)
+    - ✅ *Approval Testing* -> https://github.com/approvals/ApprovalTests.Java
+    - 🧬 *Mutation Testing* (tests de robustesse) -> https://pitest.org/
 
 4. **Ajout de la nouvelle règle pour les objets `Conjured`**
