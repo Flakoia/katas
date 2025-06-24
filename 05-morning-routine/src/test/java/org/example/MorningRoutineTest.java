@@ -8,19 +8,18 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class MorningRoutineTest {
+class MorningRoutineShould {
 
     @Mock
     private TimeProvider timeProvider;
 
     @Test
-    void display_Do_exercise_between_6_and_6_59() {
-        MorningRoutine morningRoutine = new MorningRoutine(timeProvider);
-        String activityNow = morningRoutine.whatShouldIdoNow();
-        assertEquals("Do exercise", activityNow);
+    void test_fail() {
+        assertTrue(false);
     }
 
 }
