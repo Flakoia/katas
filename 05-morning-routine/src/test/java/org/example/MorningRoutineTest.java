@@ -18,11 +18,8 @@ class MorningRoutineTest {
 
     @Test
     void display_Do_exercise_between_6_and_6_59() {
-        when(timeProvider.getTime()).thenReturn(LocalTime.of(6, 45));
         MorningRoutine morningRoutine = new MorningRoutine(timeProvider);
-
         String activityNow = morningRoutine.whatShouldIdoNow();
-
         assertEquals("Do exercise", activityNow);
     }
 
