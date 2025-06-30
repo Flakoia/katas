@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/06 - Roman numerals/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="fizz-buzz" />
+        <module name="Fizzbuzz" />
+        <module name="MorningRoutine" />
+        <module name="06-roman-numerals" />
         <module name="tdd-java" />
         <module name="LeapYear" />
         <module name="gilded-rose-kata" />
-        <module name="MorningRoutine" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="romannumerals" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
