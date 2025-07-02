@@ -3,7 +3,8 @@
   <component name="SonarLintProjectSettings">
     <option name="moduleMapping">
       <map>
-        <entry key="07-bank-kata" value="07-empty-kata" />
+        <entry key="07-mikado" value="07-empty-kata" />
+        <entry key="08-bank-kata" value="07-bank-kata (1)" />
       </map>
     </option>
   </component>

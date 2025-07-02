@@ -9,9 +9,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="07-bank-kata" />
         <module name="fizz-buzz" />
         <module name="Fizzbuzz" />
+        <module name="07-mikado" />
         <module name="MorningRoutine" />
         <module name="06-roman-numerals" />
         <module name="tdd-java" />
@@ -20,6 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="08-bank-kata" target="21" />
       <module name="romannumerals" target="1.8" />
     </bytecodeTargetLevel>
   </component>
