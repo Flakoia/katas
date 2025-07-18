@@ -18,7 +18,8 @@ public class PrintStatementFeature {
 
     @BeforeEach
     void setUp() {
-        account = new Account();
+        TransactionRespository transactionRespository = new TransactionRespository();
+        account = new Account(transactionRespository);
     }
 
     @Test
@@ -26,6 +27,8 @@ public class PrintStatementFeature {
         account.deposit(1000);
         account.withdraw(100);
         account.deposit(500);
+
+        account.printStatement();
 
         InOrder inOrder = inOrder(console);
         inOrder.verify(console).printLine("DATE|AMOUNT|BALANCE");
