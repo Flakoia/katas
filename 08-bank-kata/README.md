@@ -1,23 +1,38 @@
-#  RomanNumerals kata
+Learn and practice the double loop of TDD
+Test application from outside, identifying side effects
 
-## Consigne du Kata :
+### Problem description - Bank kata
 
-Your bank is tired of its mainframe COBOL accounting software and they hired both of you for a greenfield project in - what a happy coincidence
+Create a simple bank application with the following features:
 
-your favorite programming language!
-Your task is to show them that your TDD-fu and your new-age programming language can cope with good ole’ COBOL!
+- Deposit into Account
+- Withdraw from an Account
+- Print a bank statement to the console
 
-### Requirements
-Write a class Account that offers the following methods void deposit(int) void withdraw(int) String printStatement()
+## Acceptance criteria
 
-You are not allowed to add any other public methods to this class
-Statement should be in reverse chronological order
+Statement should have transactions in the following format:
+~~~ 
+DATE        | AMOUNT | BALANCE  
+10/04/2024  | 500.00 | 1400.00  
+02/04/2024  |-100.00 |  900.00  
+01/04/2024  |1000.00 | 1000.00
+~~~ 
 
+## Starting point and constraints
+1. Start with a class the following structure:
 
-### An example statement would be:
+~~~ 
+public class Account {
 
-Date            Amount      Balance
-02.09.2016      -1800       -600
-25.08.2016      +800        1200
-23.08.2016      -100        400
-24.12.2015      +500        500
+    public void deposit(int amount);
+
+    public void withdraw(int amount);
+
+    public void printStatement();
+}
+~~~ 
+
+2. You are not allowed to add any other public method to this class.
+3. Use Strings and Integers for dates and amounts (keep it simple)
+4. Don’t worry about spacing in the statement printed on the console
