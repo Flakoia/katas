@@ -1,6 +1,6 @@
 package org.example;
 
-public class Bank {
+public class Account {
 
 
 }
