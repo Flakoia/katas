@@ -30,6 +30,6 @@ public class TransactionRespository {
     }
 
     private Transaction createTransaction(int amount) {
-        return new Transaction(clock.today(), amount);
+        return new Transaction(clock.todayAsString(), amount);
     }
 }
