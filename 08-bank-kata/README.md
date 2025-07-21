@@ -47,3 +47,9 @@ public class Account {
 3. How can the Account object orchestrate the overall logic while delegating work to other classes so that those classes don’t depend on Account itself?
 4. Which objects need to know the date, the amount, and the balance?
 5. How can we enable testing without relying on external systems?
+
+## How to
+1. Acceptance criteria
+2. Add a repository
+3. Add a printer
+4. Create a repository

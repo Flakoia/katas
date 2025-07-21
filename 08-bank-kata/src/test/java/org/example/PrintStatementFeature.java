@@ -19,7 +19,8 @@ public class PrintStatementFeature {
     @BeforeEach
     void setUp() {
         TransactionRespository transactionRespository = new TransactionRespository();
-        account = new Account(transactionRespository);
+        StatementPrinter statementPrinter = new StatementPrinter();
+        account = new Account(transactionRespository, statementPrinter);
     }
 
     @Test
