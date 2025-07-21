@@ -52,4 +52,5 @@ public class Account {
 1. Acceptance criteria
 2. Add a repository
 3. Add a printer
-4. Create a repository
+4. Store in repository
+5. Withdraw in Repository

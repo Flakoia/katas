@@ -1,6 +1,5 @@
-package org.bank;
+package org.bank.domain;
 
-import org.bank.domain.Account;
 import org.bank.adapters.printer.StatementPrinter;
 import org.bank.domain.model.Transaction;
 import org.bank.adapters.repository.TransactionRespository;
@@ -46,7 +45,7 @@ public class AccountShould
     @Test
     void print_a_statement()
     {
-        List<Transaction> transactions = asList(new Transaction());
+        List<Transaction> transactions = asList(new Transaction(null, null));
         given(transactionRespository.allTransactions()).willReturn(transactions);
 
         account.printStatement();

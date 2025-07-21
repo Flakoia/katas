@@ -1,5 +1,6 @@
 package org.bank;
 
+import org.bank.adapters.repository.Clock;
 import org.bank.domain.Account;
 import org.bank.adapters.printer.Console;
 import org.bank.adapters.printer.StatementPrinter;
@@ -20,10 +21,12 @@ public class PrintStatementFeature {
     @Mock
     Console console;
     private Account account;
+    @Mock
+    private Clock clock;
 
     @BeforeEach
     void setUp() {
-        TransactionRespository transactionRespository = new TransactionRespository();
+        TransactionRespository transactionRespository = new TransactionRespository(clock);
         StatementPrinter statementPrinter = new StatementPrinter();
         account = new Account(transactionRespository, statementPrinter);
     }
