@@ -3,6 +3,7 @@ package org.bank.adapters.repository;
 import org.bank.domain.model.Transaction;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TransactionRespository {
@@ -19,10 +20,10 @@ public class TransactionRespository {
     }
 
     public void addWithdrawal(Integer amount) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        transactions.add(new Transaction(clock.today(), -amount));
     }
 
     public List<Transaction> allTransactions() {
-        return transactions;
+        return Collections.unmodifiableList(transactions);
     }
 }

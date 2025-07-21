@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,6 +40,17 @@ class TransactionRespositoryShould {
 
         assertEquals(1, transactions.size());
         assertEquals(transaction(TODAY, 200), transactions.getFirst());
+    }
+
+    @Test
+    void create_and_store_a_withdrawal() {
+        given(clock.today()).willReturn(TODAY);
+        account.withdraw(100);
+
+        List<Transaction> transactions = transactionRepository.allTransactions();
+
+        assertEquals(1, transactions.size());
+        assertEquals(transaction(TODAY, -100), transactions.getFirst());
     }
 
     private Transaction transaction(String date, Integer amount) {
