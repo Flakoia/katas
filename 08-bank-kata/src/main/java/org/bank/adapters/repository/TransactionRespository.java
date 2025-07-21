@@ -16,14 +16,20 @@ public class TransactionRespository {
     }
 
     public void addDeposit(Integer amount) {
-        transactions.add(new Transaction(clock.today(), amount));
+        Transaction deposit = createTransaction(amount);
+        transactions.add(deposit);
     }
 
     public void addWithdrawal(Integer amount) {
-        transactions.add(new Transaction(clock.today(), -amount));
+        Transaction withdraw = createTransaction(-amount);
+        transactions.add(withdraw);
     }
 
     public List<Transaction> allTransactions() {
         return Collections.unmodifiableList(transactions);
+    }
+
+    private Transaction createTransaction(int amount) {
+        return new Transaction(clock.today(), amount);
     }
 }
