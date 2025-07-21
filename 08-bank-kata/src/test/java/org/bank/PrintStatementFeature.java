@@ -1,5 +1,9 @@
-package org.example;
+package org.bank;
 
+import org.bank.domain.Account;
+import org.bank.adapters.printer.Console;
+import org.bank.adapters.printer.StatementPrinter;
+import org.bank.adapters.repository.TransactionRespository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +17,8 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 public class PrintStatementFeature {
 
-    @Mock Console console;
+    @Mock
+    Console console;
     private Account account;
 
     @BeforeEach

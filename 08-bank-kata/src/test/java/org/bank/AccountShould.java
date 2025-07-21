@@ -1,10 +1,13 @@
-package org.example;
+package org.bank;
 
+import org.bank.domain.Account;
+import org.bank.adapters.printer.StatementPrinter;
+import org.bank.domain.model.Transaction;
+import org.bank.adapters.repository.TransactionRespository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
@@ -16,8 +19,10 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 public class AccountShould
 {
-    @Mock TransactionRespository transactionRespository;
-    @Mock StatementPrinter statementPrinter;
+    @Mock
+    TransactionRespository transactionRespository;
+    @Mock
+    StatementPrinter statementPrinter;
 
     private Account account;
 

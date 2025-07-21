@@ -1,4 +1,7 @@
-package org.example;
+package org.bank.domain;
+
+import org.bank.adapters.printer.StatementPrinter;
+import org.bank.adapters.repository.TransactionRespository;
 
 public class Account {
 

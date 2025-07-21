@@ -1,4 +1,6 @@
-package org.example;
+package org.bank.adapters.repository;
+
+import org.bank.domain.model.Transaction;
 
 import java.util.List;
 
