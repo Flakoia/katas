@@ -12,6 +12,7 @@ import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
@@ -27,12 +28,14 @@ public class PrintStatementFeature {
     @BeforeEach
     void setUp() {
         TransactionRespository transactionRespository = new TransactionRespository(clock);
-        StatementPrinter statementPrinter = new StatementPrinter();
+        StatementPrinter statementPrinter = new StatementPrinter(console);
         account = new Account(transactionRespository, statementPrinter);
     }
 
     @Test
     public void shouldContainsAllTransactions() {
+        given(clock.todayAsString()).willReturn("01/04/2024", "02/04/2024" , "10/04/2024");
+
         account.deposit(1000);
         account.withdraw(100);
         account.deposit(500);

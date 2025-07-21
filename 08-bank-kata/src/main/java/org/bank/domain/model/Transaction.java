@@ -31,4 +31,12 @@ public class Transaction {
                 ", amount=" + amount +
                 '}';
     }
+
+    public Integer amount() {
+        return amount;
+    }
+
+    public String date() {
+        return date;
+    }
 }

@@ -1,5 +1,6 @@
 package org.bank.adapters.repository;
 
+import org.bank.adapters.printer.Console;
 import org.bank.adapters.printer.StatementPrinter;
 import org.bank.domain.Account;
 import org.bank.domain.model.Transaction;
@@ -22,11 +23,13 @@ class TransactionRespositoryShould {
     private Account account;
     @Mock
     private Clock clock;
+    @Mock
+    private Console console;
 
     @BeforeEach
     void setUp() {
         transactionRepository = new TransactionRespository(clock);
-        StatementPrinter statementPrinter = new StatementPrinter();
+        StatementPrinter statementPrinter = new StatementPrinter(console);
         account = new Account(transactionRepository, statementPrinter);
     }
 

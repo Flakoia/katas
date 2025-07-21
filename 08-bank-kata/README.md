@@ -54,3 +54,6 @@ public class Account {
 3. Add a printer
 4. Store in repository
 5. Withdraw in Repository
+6. Create clock
+7. Statement printline
+8. Console, Reverse order
