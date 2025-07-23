@@ -2,9 +2,11 @@ package org.example;
 
 public class Account {
     private final TransactionRepository transactionRepository;
+    private final AccountPrinter accountPrinter;
 
-    public Account(TransactionRepository transactionRepository) {
+    public Account(TransactionRepository transactionRepository, AccountPrinter accountPrinter) {
         this.transactionRepository = transactionRepository;
+        this.accountPrinter = accountPrinter;
     }
 
     public void deposit(Integer amount) {
@@ -12,10 +14,10 @@ public class Account {
     }
 
     public void withdraw(Integer amount) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        transactionRepository.addWithdrawal(amount);
     }
 
     public void printStatement() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        accountPrinter.print(transactionRepository.allTransactions());
     }
 }
