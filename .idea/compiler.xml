@@ -17,10 +17,10 @@
         <module name="tdd-java" />
         <module name="LeapYear" />
         <module name="gilded-rose-kata" />
+        <module name="08-bank-kata" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="08-bank-kata" target="21" />
       <module name="romannumerals" target="1.8" />
     </bytecodeTargetLevel>
   </component>
